@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaseTen - Infrastructure Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #e0e5ec;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 40px 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+            color: #2d3748;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8), -2px -2px 4px rgba(163,177,198,0.6);
+        }
+        .tagline {
+            font-size: 18px;
+            color: #718096;
+        }
+        nav {
+            background: #e0e5ec;
+            padding: 20px 0;
+            margin: 30px 0;
+            border-radius: 20px;
+            box-shadow: 8px 8px 16px #a3b1c6, -8px -8px 16px #ffffff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            display: block;
+            padding: 15px 35px;
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 12px;
+            background: #e0e5ec;
+            box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            margin: 40px 0;
+        }
+        .hero h2 {
+            font-size: 42px;
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8), -2px -2px 4px rgba(163,177,198,0.6);
+        }
+        .hero p {
+            font-size: 20px;
+            color: #718096;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .hero-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: #e0e5ec;
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 15px;
+            box-shadow: 8px 8px 16px #a3b1c6, -8px -8px 16px #ffffff;
+            transition: all 0.3s;
+        }
+        .hero-button:hover {
+            box-shadow: inset 8px 8px 16px #a3b1c6, inset -8px -8px 16px #ffffff;
+        }
+        .services {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #2d3748;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8), -2px -2px 4px rgba(163,177,198,0.6);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        .service-card {
+            background: #e0e5ec;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: #e0e5ec;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin-bottom: 25px;
+            box-shadow: inset 6px 6px 12px #a3b1c6, inset -6px -6px 12px #ffffff;
+        }
+        .service-card h3 {
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        .service-card p {
+            color: #718096;
+            margin-bottom: 15px;
+        }
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .service-card li {
+            color: #718096;
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        .service-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #4a5568;
+        }
+        .cta {
+            text-align: center;
+            padding: 80px 20px;
+            margin: 60px 0;
+            background: #e0e5ec;
+            border-radius: 30px;
+            box-shadow: 20px 20px 40px #a3b1c6, -20px -20px 40px #ffffff;
+        }
+        .cta h2 {
+            font-size: 36px;
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8), -2px -2px 4px rgba(163,177,198,0.6);
+        }
+        .cta p {
+            font-size: 18px;
+            color: #718096;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: #e0e5ec;
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            border-radius: 15px;
+            box-shadow: 10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff;
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            box-shadow: inset 10px 10px 20px #a3b1c6, inset -10px -10px 20px #ffffff;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #718096;
+            margin-top: 60px;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .hero h2 { font-size: 32px; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BaseTen</h1>
+            <p class="tagline">Infrastructure Consulting Excellence</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero">
+            <h2>Modern Infrastructure Solutions</h2>
+            <p>We specialize in SDLC optimization, containerization, cloud migration, security, self-hosted solutions, and seamless integrations for growing businesses.</p>
+            <a href="#contact" class="hero-button">Get Started</a>
+        </section>
+
+        <section id="services" class="services">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>SDLC Optimization</h3>
+                    <p>Streamline your software development lifecycle with modern practices and automation.</p>
+                    <ul>
+                        <li>CI/CD Pipeline Setup</li>
+                        <li>DevOps Integration</li>
+                        <li>Automated Testing</li>
+                        <li>Release Management</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Containerization</h3>
+                    <p>Modernize applications with Docker and Kubernetes orchestration solutions.</p>
+                    <ul>
+                        <li>Docker Implementation</li>
+                        <li>Kubernetes Clusters</li>
+                        <li>Container Registries</li>
+                        <li>Microservices Architecture</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3>Cloud Migration</h3>
+                    <p>Seamlessly transition to cloud infrastructure with minimal downtime.</p>
+                    <ul>
+                        <li>AWS/Azure/GCP Migration</li>
+                        <li>Hybrid Cloud Setup</li>
+                        <li>Cloud Optimization</li>
+                        <li>Cost Management</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>Security Services</h3>
+                    <p>Protect your infrastructure with enterprise-grade security solutions.</p>
+                    <ul>
+                        <li>Security Audits</li>
+                        <li>Compliance Management</li>
+                        <li>Penetration Testing</li>
+                        <li>Threat Monitoring</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🖥️</div>
+                    <h3>Self-Hosted Solutions</h3>
+                    <p>Deploy and manage on-premise infrastructure with full control.</p>
+                    <ul>
+                        <li>Private Cloud Setup</li>
+                        <li>Server Configuration</li>
+                        <li>Network Architecture</li>
+                        <li>Backup & Recovery</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>System Integration</h3>
+                    <p>Connect your tools and platforms for seamless workflows.</p>
+                    <ul>
+                        <li>API Development</li>
+                        <li>Workflow Automation</li>
+                        <li>Third-Party Integration</li>
+                        <li>Data Synchronization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="cta">
+            <h2>Ready to Transform Your Infrastructure?</h2>
+            <p>Let's discuss how we can help modernize your development workflows.</p>
+            <a href="mailto:hello@baseten.com" class="cta-button">Contact Us</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 BaseTen - Infrastructure Consulting - All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>
